@@ -52,6 +52,7 @@ root
 91.108.113.150
 Pizz@TRorIN25DAi
 
+class="button-text text-nowrap"
 //============================oldcode
 <div class="booking-items order-check">
 
@@ -102,81 +103,57 @@ Pizz@TRorIN25DAi
 }
 
 
-section.hero-section .container .top__slider h3 {
-    font-size: 64px;
-    font-weight: bold;
-    text-shadow: 3px 3px #3c3531;
-}
- 
-@media (max-width: 991px) {
-    section.hero-section .container .top__slider h3 {
-        text-shadow: none;
-    }
-}
-@media (max-width: 767px) {
-    section.hero-section .container .top__slider h3 {
-        font-size: 48px;
-    }
-}
-@media (max-width: 375px) {
-    section.hero-section .container .top__slider h3 {
-        font-size: 38px;
-    }
-}
- 
-section.hero-section .container .top__slider .feature-three__top-inner ul li h3 {
-    text-shadow: none;
-    font-size: 18px;
-    line-height: 1.4;
-}
- 
-section.hero-section .container .top__slider .feature-three__top-inner ul li h3 a {
-    font-size: inherit;
-    color: #fff;
-    text-shadow: 1px 1px black;
-}
-@media (max-width: 991px) {
-    section.hero-section .container .top__slider .feature-three__top-inner ul li h3 a {
-        text-shadow: none;
-        color: var(--ambed-black, #3c3531);
-    }
-}
- 
-section.hero-section .container .top__slider h5 {
-    font-size: 22px;
-    text-shadow: 1px 1px #0e0e0e;
-}
-@media (max-width: 991px) {
-    section.hero-section .container .top__slider h5 {
-        text-shadow: none;
-    }
-}
- 
-section.hero-section .container .top__slider .feature-three__top-inner {
-    padding: 0;
-    background: transparent;
-    box-shadow: none;
-    border-radius: 0;
-}
- 
-section.hero-section .container .top__slider .feature-three__top-inner ul li {
-    background: rgb(255 255 255 / 40%);
-    padding: 30px;
-    border: 1px solid #bfbfbf;
-}
-@media (min-width: 1200px) {
-    section.hero-section .container .top__slider .feature-three__top-inner ul li {
-        width: 19%;
-    }
-}
-section.hero-section .container .top__slider .feature-three__top-inner ul li .feature-three__top-icon {
-    width: 150px;
-    height: 150px;
-    overflow: hidden;
-}
- 
-section.hero-section .container .top__slider .feature-three__top-inner ul li .feature-three__top-icon img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
+
+<section class="brand-shape section-padding section-bg check_pnr">
+    <div class="container">
+        <div class="brand-wrapper">
+            <div class="section-title text-center">
+             @php
+                 $sta_lists = App\Helpers\Helper::get_deliver_station();
+                 $selectedStation = session('delivery_station');
+            @endphp
+            
+                <span class="wow fadeInUp">Order Food Delivery in Train</span>
+                <h2 class="wow fadeInUp" data-wow-delay=".3s">Select Station</h2>
+            </div>
+
+            <div class="booking-items order-check">
+                <!-- <div class="form-clt">
+                    <select class="form-control">
+                        <option value="">Select Delivery Station</option>
+                    </select>
+                    <h6 class="wow fadeInUp" data-wow-delay=".3s">Select Delivery Station</h6>
+                </div> -->
+                <div class="form-clt d-flex align-itmes-end gap-3 select-height-56">
+                    <div>
+                        <h6 class="text-nowrap wow fadeInUp" data-wow-delay=".3s">Select Delivery Station</h6>                    
+                        <select name="delivery_station" id="delivery_station" class="form-control">
+                            @if(count($sta_lists) > 0)
+                                @foreach($sta_lists as $list_state)
+                                <option value="{{$list_state->id}}" {{ $selectedStation == $list_state->id ? 'selected' : '' }}>{{$list_state->station_name}}</option>
+                                @endforeach
+                            @endif
+                        
+                        </select>
+                    </div>
+                </div>
+
+
+                    <div id="vendor_list" class="w-full" style="display: none;">
+                    <div>
+                    <!-- <h6 class="text-nowrap wow fadeInUp" data-wow-delay=".3s">Select Delivery Station</h6>   -->
+                        <select class="form-control" >
+
+                        </select>
+                    </div>
+                    <!-- </div> -->
+                </div>
+                <div class="form-clt">
+                    <a href="{{ route('front.item') }}" class="theme-btn">
+                        Order Now
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
