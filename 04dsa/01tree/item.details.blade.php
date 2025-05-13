@@ -157,3 +157,8 @@ class="button-text text-nowrap"
         </div>
     </div>
 </section>
+
+.hero-1.bg-cover {
+    padding: 0;
+}
+  
