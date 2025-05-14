@@ -1,3 +1,4 @@
+print("""
 class Node:
     def __init__(self, key):
         self.key = key
@@ -97,7 +98,7 @@ print("Search for 4:", found)
 print("Search for 99:", not_found)
 
 
-
+""")
 
 #🧠 Full Binary Tree Implementation (Recursive + Object-Oriented)
 
