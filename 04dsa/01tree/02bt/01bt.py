@@ -12,7 +12,7 @@ class BT:
         self.root = NodeBt(root_key)
 
        def insert(self, key):
-        from collection import deque
+        from collections import deque
         queue = deque([self.root])
 
        while queue:
@@ -22,13 +22,13 @@ class BT:
             node.left = NodeBt(key)
             return
        else:
-        queue.appent(node.left)
+        queue.append(node.left)
        
        if not node.right:
         node.right = NodeBt(key)
         return
        else:
-        queue.appent(node.right)
+        queue.append(node.right)
        
 
 
