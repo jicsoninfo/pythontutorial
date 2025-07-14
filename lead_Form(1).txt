@@ -1,0 +1,70 @@
+<?php
+$leadData = [
+    "firstName" => "John",
+    "lastName" => "Doe",
+    "jobTitle" => "",
+    "waytoContact" => "Email",
+    "leadRank" => "1",               // Update value based on your firm - must required
+    "leadRankMeaning" => "High",     // Update value based on your firm - must required
+    "leadStatus" => "4",             // Update value based on your firm - must required
+    "leadStatusMeaning" => "Converted",             // Update value based on your firm - must required
+    "leadSource" => "NEW_CONTACT_FORM",             // Update value based on your firm - must required
+    "leadSourceMeaning" => "NEW_CONTACT_FORM",      // Update value based on your firm - must required
+    "leadTypeId" => "58873",                        // Update value based on your firm - must required
+    "leadTypeName" => "Existing Business",          // Update value based on your firm - must required
+    "assigneeObjectRefId" => 316889671,             // Update value based on your firm - must required
+    "assigneeObjectRefName" => "",                  // Update value based on your firm - must required
+    "assigneeObjectId" => 8,
+    "phoneNumbers" => [
+        [
+            "id" => "lead_phone_input",
+            "phoneNumber" => "9876543210",              // Update value based on your firm
+            "phoneType" => "Business",
+            "phoneTypeCode" => "PHONE_BUSINESS"
+        ]
+    ],
+    "emailAddresses" => [
+        [
+            "id" => "cont_email_input",
+            "emailAddress" => "john.doe@example.com",             // Update value based on your firm
+            "emailTypeCode" => "BUSINESS",
+            "emailType" => "Business"
+        ]
+    ],
+    "labels" => [],
+    "addresses" => [],
+    "customAttributes" => []
+];
+
+$apiKey = "xxxxxxxxxx";                       // Update value based on your firm - must required
+$accessKey = "xxxxxxxxxxxxxxxxx";             // Update value based on your firm - must required
+
+$postData = [
+    "a" => "save",
+    "objectId" => 4,
+    "leadData" => json_encode($leadData),
+    "apiKey" => $apiKey,
+    "accessKey" => $accessKey
+];
+
+$url = "https://api2.apptivo.com/app/dao/v6/leads";
+
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, $url);
+curl_setopt($ch, CURLOPT_POST, true);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($postData));
+curl_setopt($ch, CURLOPT_HTTPHEADER, ['Content-Type: application/x-www-form-urlencoded']);
+
+$response = curl_exec($ch);
+$httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+
+if (curl_errno($ch)) {
+    echo "cURL Error: " . curl_error($ch);
+} else {
+    echo "HTTP Code: $httpCode\n";
+    echo "Response: $response";
+}
+
+curl_close($ch);
+?>

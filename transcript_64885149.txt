@@ -1,0 +1,143 @@
+Details:
+     Date: 9/7/2025
+     Operator: Madhu
+     Website: https://app.apptivo.com/app/home.jsp#/business-settings/api-access
+     Source: https://www.apptivo.com/developer-api/leads-api-reference/createlead/
+     IP Address: 49.36.191.198
+     Rating: No Rating
+     Feedback: 
+     Company: infoicon
+     Email: ravi.bhushan@infoicon.in
+     Tags: 
+
+
+[9/7/2025 - 2:14 PM] Ravi joined the chat
+
+[9/7/2025 - 2:14 PM] Ravi said:
+Hi, i am integrated apptivo api, in website, i am using api key and access key. when i am hit api it gives error "{"reason":"Api Key/ Access Key Wrong","status":"FAILURE"} "
+
+
+[9/7/2025 - 2:14 PM] Madhu joined the chat
+
+[9/7/2025 - 2:15 PM] Madhu said:
+Hi Ravi!
+
+[9/7/2025 - 2:15 PM] Ravi said:
+Hi
+
+[9/7/2025 - 2:16 PM] Madhu said:
+Could you please provide us with more information, where you are trying to integrate the API?
+
+[9/7/2025 - 2:17 PM] Ravi said:
+we have a website https://www.pyrosoftinc.com/ on website we created form, when we save the data, data saved into google form but not into apptivo lead
+
+[9/7/2025 - 2:20 PM] Madhu said:
+Okay, Ravi, so while trying to collect your lead information from your website, you are receiving the above error, right?
+
+[9/7/2025 - 2:20 PM] Ravi said:
+yes
+
+[9/7/2025 - 2:20 PM] Madhu said:
+Kindly wait a moment while I check this for you!
+
+
+[9/7/2025 - 2:23 PM] Madhu said:
+Ravi, please make sure that you have entered the correct API key and access key, which is in your firm.
+
+[9/7/2025 - 2:24 PM] Madhu said:
+Kindly check this information into your API code and let us know.
+
+[9/7/2025 - 2:24 PM] Ravi said:
+Yes i got api from Business settings->API Access
+
+[9/7/2025 - 2:24 PM] Ravi said:
+Here is API Key and Access Key
+
+[9/7/2025 - 2:25 PM] Madhu said:
+Yes, please make sure to enter the those keys properly in order to avoid any errors.
+
+[9/7/2025 - 2:26 PM] Ravi said:
+Yes i used these keys,
+
+[9/7/2025 - 2:27 PM] Madhu said:
+Okay, could you please confirm that are you still facing the same error even after using the keys?
+
+[9/7/2025 - 2:29 PM] Ravi said:
+Yes, i am getting same issue but when i hit this api:- https://api.apptivo.com/app/dao/v6/leads i got message "Sign in to your account"
+
+[9/7/2025 - 2:30 PM] Ravi said:
+and when i hit api:- https://api.apptivo.com/app/dao/v6/leads?a=save&apiKey=xxxxxxxxxxxxxxxxxxx&accessKey=xxxxxxxxxxxxxxxxxxxxxxxxxxxx
+then i got "{"reason":"Api Key/ Access Key Wrong","status":"FAILURE"}"
+
+[9/7/2025 - 2:31 PM] Madhu said:
+Okay, Ravi kindly wait a moment let me check this for you
+
+[9/7/2025 - 2:34 PM] Madhu said:
+Ravi, let me check this with my engineering team and get back to you with an update via email.
+
+[9/7/2025 - 2:39 PM] Madhu said:
+Ravi, in the meantime, could you please share your full api code you have used? so that we can investigate further on it.
+
+[9/7/2025 - 2:47 PM] Madhu said:
+Hope we are still connected?
+
+[9/7/2025 - 2:51 PM] Ravi said:
+yes sure
+
+[9/7/2025 - 2:52 PM] Ravi said:
+i have to share api key or access key ?
+
+[9/7/2025 - 2:53 PM] Ravi said:
+$leadData = [
+							"firstName"    => "Test",
+							"lastName"     => "User",
+							"emailAddress" => "testuser@example.com",
+							"phoneNumber"  => "1234567890",
+							"companyName"  => "Test Company",
+							"leadSource"   => ["value" => "Web Form"]
+						];
+
+						$apptivo = curl_init('https://api.apptivo.com/app/dao/v6/leads');
+						
+						curl_setopt($apptivo, CURLOPT_POST, true);
+						curl_setopt($apptivo, CURLOPT_POSTFIELDS, json_encode($leadData));
+						curl_setopt($apptivo, CURLOPT_RETURNTRANSFER, true);
+						curl_setopt($apptivo, CURLOPT_FOLLOWLOCATION, true); 
+						curl_setopt($apptivo, CURLOPT_HTTPHEADER, [
+							'ApiKey: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',
+							'AccessKey: xxxxxxxxxxxxxxxxxxxxx',
+							'UserEmail: kerry@pyrosoftinc.com',
+							'Content-Type: application/json'
+						]);
+
+						$response = curl_exec($apptivo);
+						$httpCode = curl_getinfo($apptivo, CURLINFO_HTTP_CODE);
+
+						if (curl_errno($apptivo)) {
+							echo 'Apptivo CURL Error: ' . curl_error($apptivo);
+						} elseif ($httpCode >= 400) {
+							echo "HTTP Error $httpCode: ";
+							echo htmlspecialchars($response);
+						} else {
+							echo "<pre>";
+							print_r(json_decode($response, true));
+							
+							echo "</pre>";
+						}
+
+						
+
+						curl_close($apptivo);
+
+[9/7/2025 - 2:55 PM] Madhu said:
+Thank you for sharing it with us. let us check this further with our engineering team and get back to you with an update shortly via email.
+
+[9/7/2025 - 2:56 PM] Madhu said:
+Is there anything else I can assist you with today?
+
+[9/7/2025 - 2:56 PM] Ravi said:
+No, thanks
+
+[9/7/2025 - 2:56 PM] Madhu said:
+Feel free to reach out to us, in case of any further queries.
+Thank you for contacting us! Have a wonderful rest of the day! Cheers ??
