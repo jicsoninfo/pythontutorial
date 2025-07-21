@@ -1,0 +1,189 @@
+<?php
+$CompanyName = [your Company Name];          // your Input Value
+$ShipToAddress = [your Ship To Address];     // your Input Value
+$ShipToName = [your Ship To Name];           // your Input Value
+$ShipToEmail = [your Ship To Email];         // your Input Value
+$ShiptoPhoneNumber = [your Ship to Phone Number:];
+$ShipToAlternatePhoneNumber = [your Ship To Alternate Phone Number:];
+$ShipToFax = [your Ship To Fax];
+$BilltoAddress = [your Bill to Address];
+$AccountingInvoiceEmail = [your Accounting Invoice Email];
+$BillToEmail = [your Bill To Email];
+$AccountingPhoneNumber = [your Accounting Phone Number];
+$AccountingPhoneNumber = [your Accounting Phone Number];
+$AccountingFax = [your Accounting Fax];
+
+$leadData = [
+    "firstName" => "John",
+    "lastName" => "Doe",
+    "jobTitle" => "",
+    "waytoContact" => "Email",
+    "leadRank" => "1",               // Update value based on your firm - must required
+    "leadRankMeaning" => "High",     // Update value based on your firm - must required
+    "leadStatus" => "4",             // Update value based on your firm - must required
+    "leadStatusMeaning" => "Converted",             // Update value based on your firm - must required
+    "leadSource" => "NEW_CONTACT_FORM",             // Update value based on your firm - must required
+    "leadSourceMeaning" => "NEW_CONTACT_FORM",      // Update value based on your firm - must required
+    "leadTypeId" => "58873",                        // Update value based on your firm - must required
+    "leadTypeName" => "Existing Business",          // Update value based on your firm - must required
+    "assigneeObjectRefId" => 316889671,             // Update value based on your firm - must required
+    "assigneeObjectRefName" => "",                  // Update value based on your firm - must required
+    "assigneeObjectId" => 8,
+    "phoneNumbers" => [
+        [
+            "id" => "lead_phone_input",
+            "phoneNumber" => "9876543210",              // Update value based on your firm
+            "phoneType" => "Business",
+            "phoneTypeCode" => "PHONE_BUSINESS"
+        ]
+    ],
+    "emailAddresses" => [
+        [
+            "id" => "cont_email_input",
+            "emailAddress" => "john.doe@example.com",             // Update value based on your firm
+            "emailTypeCode" => "BUSINESS",
+            "emailType" => "Business"
+        ]
+    ],
+    "labels" => [],
+    "addresses" => [],
+    "customAttributes" => [
+    {
+      "customAttributeId": "input_4_18",
+      "customAttributeValue": $CompanyName,
+      "customAttributeType": "input",
+      "customAttributeTagName": "input_1736437446162_473_1048051736437446162_827",
+      "customAttributeName": "input_1736437446162_473_1048051736437446162_827",
+      "input_1736437446162_473_1048051736437446162_827": $CompanyName
+    },
+    {
+      "customAttributeId": "input_4_19",
+      "customAttributeValue": $ShipToAddress,
+      "customAttributeType": "input",
+      "customAttributeTagName": "input_1736438268599_75_1038701736438268599_979",
+      "customAttributeName": "input_1736438268599_75_1038701736438268599_979",
+      "input_1736438268599_75_1038701736438268599_979": $ShipToAddress
+    },
+    {
+      "customAttributeId": "input_4_20",
+      "customAttributeValue": $ShipToName,
+      "customAttributeType": "input",
+      "customAttributeTagName": "input_1736438287334_423_926161736438287334_361",
+      "customAttributeName": "input_1736438287334_423_926161736438287334_361",
+      "input_1736438287334_423_926161736438287334_361": $ShipToName
+    },
+    {
+      "customAttributeId": "input_4_21",
+      "customAttributeValue": $ShipToEmail,
+      "customAttributeType": "input",
+      "customAttributeTagName": "input_1736438289786_180_869451736438289786_584",
+      "customAttributeName": "input_1736438289786_180_869451736438289786_584",
+      "input_1736438289786_180_869451736438289786_584": $ShipToEmail
+    },
+    {
+      "customAttributeId": "input_4_22",
+      "customAttributeValue": $ShiptoPhoneNumber,
+      "customAttributeType": "input",
+      "customAttributeTagName": "input_1736438291922_764_718031736438291922_707",
+      "customAttributeName": "input_1736438291922_764_718031736438291922_707",
+      "input_1736438291922_764_718031736438291922_707": $ShiptoPhoneNumber
+    },
+    {
+      "customAttributeId": "input_4_23",
+      "customAttributeValue": $ShipToAlternatePhoneNumber,
+      "customAttributeType": "input",
+      "customAttributeTagName": "input_1736438293390_317_679601736438293390_46",
+      "customAttributeName": "input_1736438293390_317_679601736438293390_46",
+      "input_1736438293390_317_679601736438293390_46": $ShipToAlternatePhoneNumber
+    },
+    {
+      "customAttributeId": "input_4_24",
+      "customAttributeValue": $ShipToFax,
+      "customAttributeType": "input",
+      "customAttributeTagName": "input_1736438294992_553_1106931736438294992_678",
+      "customAttributeName": "input_1736438294992_553_1106931736438294992_678",
+      "input_1736438294992_553_1106931736438294992_678": $ShipToFax
+    },
+    {
+      "customAttributeId": "input_4_28",
+      "customAttributeValue": $BilltoAddress,
+      "customAttributeType": "input",
+      "customAttributeTagName": "input_1736438460922_535_987071736438460922_229",
+      "customAttributeName": "input_1736438460922_535_987071736438460922_229",
+      "input_1736438460922_535_987071736438460922_229": $BilltoAddress
+    },
+    {
+      "customAttributeId": "input_4_29",
+      "customAttributeValue": $AccountingInvoiceEmail,
+      "customAttributeType": "input",
+      "customAttributeTagName": "input_1736438470481_865_882371736438470481_265",
+      "customAttributeName": "input_1736438470481_865_882371736438470481_265",
+      "input_1736438470481_865_882371736438470481_265": $AccountingInvoiceEmail
+    },
+    {
+      "customAttributeId": "input_4_30",
+      "customAttributeValue": $BillToEmail,
+      "customAttributeType": "input",
+      "customAttributeTagName": "input_1736438485697_969_1187561736438485697_718",
+      "customAttributeName": "input_1736438485697_969_1187561736438485697_718",
+      "input_1736438485697_969_1187561736438485697_718": $BillToEmail
+    },
+    {
+      "customAttributeId": "input_4_31",
+      "customAttributeValue": $AccountingPhoneNumber,
+      "customAttributeType": "input",
+      "customAttributeTagName": "input_1736438502764_172_1277571736438502764_106",
+      "customAttributeName": "input_1736438502764_172_1277571736438502764_106",
+      "input_1736438502764_172_1277571736438502764_106": $AccountingPhoneNumber
+    },
+    {
+      "customAttributeId": "input_4_32",
+      "customAttributeValue": $PurchaseOrderNumberorreference,
+      "customAttributeType": "input",
+      "customAttributeTagName": "input_1736438559319_69_1231871736438559319_420",
+      "customAttributeName": "input_1736438559319_69_1231871736438559319_420",
+      "input_1736438559319_69_1231871736438559319_420": $PurchaseOrderNumberorreference
+    },
+    {
+      "customAttributeId": "input_4_36",
+      "customAttributeValue": $AccountingFax,
+      "customAttributeType": "input",
+      "customAttributeTagName": "input_1736438575018_214_668401736438575018_875",
+      "customAttributeName": "input_1736438575018_214_668401736438575018_875",
+      "input_1736438575018_214_668401736438575018_875": $AccountingFax
+    }
+]
+];
+
+$apiKey = "xxxxxxxxxx";                       // Update value based on your firm - must required
+$accessKey = "xxxxxxxxxxxxxxxxx";             // Update value based on your firm - must required
+
+$postData = [
+    "a" => "save",
+    "objectId" => 4,
+    "leadData" => json_encode($leadData),
+    "apiKey" => $apiKey,
+    "accessKey" => $accessKey
+];
+
+$url = "https://api2.apptivo.com/app/dao/v6/leads";
+
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, $url);
+curl_setopt($ch, CURLOPT_POST, true);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($postData));
+curl_setopt($ch, CURLOPT_HTTPHEADER, ['Content-Type: application/x-www-form-urlencoded']);
+
+$response = curl_exec($ch);
+$httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+
+if (curl_errno($ch)) {
+    echo "cURL Error: " . curl_error($ch);
+} else {
+    echo "HTTP Code: $httpCode\n";
+    echo "Response: $response";
+}
+
+curl_close($ch);
+?>
