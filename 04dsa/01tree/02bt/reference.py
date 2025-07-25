@@ -97,6 +97,31 @@ print("Size:", tree_size)
 print("Search for 4:", found)
 print("Search for 99:", not_found)
 
+      
+
+      $request->validate([
+    'message' => [
+        'required',
+        'string',
+        function ($attribute, $value, $fail) {
+            // Block phone numbers (simple formats)
+            if (preg_match('/\b\d{10,13}\b/', $value)) {
+                $fail('Phone numbers are not allowed.');
+            }
+
+            // Block URLs (http, https, www, domain patterns)
+            if (preg_match('/\b(?:https?:\/\/|www\.|[a-z0-9\-]+\.[a-z]{2,})\b/i', $value)) {
+                $fail('URLs are not allowed.');
+            }
+
+            // Block email addresses
+            if (preg_match('/[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}/i', $value)) {
+                $fail('Email addresses are not allowed.');
+            }
+        },
+    ]
+]);
+
 
 """)
 
