@@ -194,6 +194,11 @@ Indicated by a single underscore _. It's a convention — not enforced — that 
       ✅ 3. Private Variable and Method
 Indicated by double underscore __. This triggers name mangling to make access harder.""")
 
+
+
+
+
+print("""
 class Car:
     def __init__(self):
         self.brand = "Toyota"         # public
@@ -215,3 +220,4 @@ print(c.brand)        # ✅ Public
 print(c._engine)      # ⚠️ Protected
 # print(c.__vin_number)  ❌ Error
 c.show_details()      # ✅ Accesses protected & private correctly
+""")
