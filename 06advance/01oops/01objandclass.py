@@ -32,3 +32,37 @@ acc = Account(1000)
 acc.deposit(500)
 print(acc.get_balance())
 #print(acc.__balance) #this would raise an AttributeError
+
+#Inheritance
+#One class (chile) can inherit attributes and methods from another (parnet)
+class Animal01:
+    def speak(self):
+        print("Animal speaks")
+
+class Dog02(Animal01): #Dog inhertis from Animal
+    def speak(self):
+        print("Dog barks")
+d = Dog02()
+d.speak()
+
+#Example of Multiple Inheritance:
+class Animal02:
+    def speak(self):
+        print("Animal speaks")
+
+class Walker02:
+    def walk(self):
+        print("Walking...")
+
+class Dog03(Animal02, Walker02):  # Inheriting from both Animal and Walker
+    def bark(self):
+        print("Dog barks")
+
+d = Dog03()
+d.speak()   # From Animal
+d.walk()    # From Walker
+d.bark()    # Defined in Dog
+
+
+
+

@@ -34,9 +34,7 @@ my_dog.bark()  # Output: Buddy says Woof!
 2. ✅ Encapsulation
 Hiding internal details and exposing only what’s necessary.
 
-python
-Copy
-Edit
+
 class Account:
     def __init__(self, balance):
         self.__balance = balance  # private variable
@@ -54,9 +52,7 @@ print(acc.get_balance())  # Output: 1500
 3. ✅ Inheritance
 One class (child) can inherit attributes and methods from another (parent).
 
-python
-Copy
-Edit
+
 class Animal:
     def speak(self):
         print("Animal speaks")
