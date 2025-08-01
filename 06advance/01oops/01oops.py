@@ -66,9 +66,7 @@ d.speak()  # Output: Dog barks
 4. ✅ Polymorphism
 Same method name but different behavior depending on the object.
 
-python
-Copy
-Edit
+
 class Cat:
     def sound(self):
         print("Meow")
