@@ -34,7 +34,7 @@ print(acc.get_balance())
 #print(acc.__balance) #this would raise an AttributeError
 
 #Inheritance
-#One class (chile) can inherit attributes and methods from another (parnet)
+#One class (child) can inherit attributes and methods from another (parnet)
 class Animal01:
     def speak(self):
         print("Animal speaks")
