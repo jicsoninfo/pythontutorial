@@ -1,0 +1,152 @@
+<?php
+	$first_name = isset($_POST['first_name']) ? trim($_POST['first_name']) : '';
+	$last_name = isset($_POST['last_name']) ? trim($_POST['last_name']) : '';
+	$company = isset($_POST['company']) ? trim($_POST['company']) : '';
+	$position = isset($_POST['position']) ? trim($_POST['position']) : '';
+	$email = isset($_POST['email']) ? trim($_POST['email']) : '';
+	if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+	    die("Invalid email address.");
+	}
+	// $is_purchase = $_POST['is_purchase'];
+	$is_purchase = isset($_POST['is_purchase']) ? trim(strtolower($_POST['is_purchase'])) : '';
+	$currency = isset($_POST['currency']) ? trim($_POST['currency']) : '';
+	$comments = isset($_POST['comments']) ? trim($_POST['comments']) : '';
+	
+	$customAttributes = []; 
+	// If currency is CAD, push the checkbox attribute
+	if ($currency === 'CAD') {
+	    $customAttributes[] = [
+		"customAttributeId" => "check_4_39",
+		"customAttributeValue" => "",
+		"customAttributeType" => "check",
+		"customAttributeTagName" => "check_1745505063049_682_1195091745505063049_7",
+		"customAttributeName" => "check_1745505063049_682_1195091745505063049_7",
+		"check_1745505063049_682_1195091745505063049_7" => "",
+		"attributeValues" => [
+		    [
+		        "attributeId" => "check_4_39",
+		        "attributeValue" => "Value",
+		        "shape" => "red",
+		        "color" => "circleicn"
+		    ]
+		]
+	    ];
+	}
+
+
+	// Normalize input back to expected key casing
+	$purchaseOptions = [
+	    "rental" => [
+		"value" => "Rental",
+		"customAttributeValueId" => "VALUE_1669896561925_121"
+	    ],
+	    "purchase" => [
+		"value" => "Purchase",
+		"customAttributeValueId" => "VALUE_1669896558878_962"
+	    ],
+	    "both" => [
+		"value" => "Both",
+		"customAttributeValueId" => "VALUE_1669896570541_144"
+	    ]
+	];
+
+	if (array_key_exists($is_purchase, $purchaseOptions)) {
+	    $selected = $purchaseOptions[$is_purchase];
+
+	    $customAttributes[] = [
+		"customAttributeId" => "select_4_2",
+		"customAttributeName" => "select_1669895973650_271_727771669895973650_663",
+		"customAttributeValue" => $selected["value"],
+		"attributeValues" => [],
+		"customAttributeValueId" => $selected["customAttributeValueId"],
+		"customAttributeType" => "select",
+		"rows" => [],
+		"emptyMap" => new stdClass(),
+		"emptyCounterMap" => new stdClass(),
+		"customAttributeTagName" => "select_1669895973650_271_727771669895973650_663",
+		"select_1669895973650_271_727771669895973650_663" => $selected["value"]
+	    ];
+	}
+
+	$ldata = [
+	    "firstName" => $first_name,
+	    "lastName" => $last_name,
+	    "jobTitle" => $position,
+	    "isUnsubscribed" => "N",
+	    "easyWayToContact" => null,
+	    "leadStatus" => null,
+	    "leadSource" => "9",
+	    "leadSourceMeaning" => "Unresearched",
+	    "leadTypeId" => null,
+	    "referredById" => 30342110900,
+	    "referredByName" => "Kerry Lane",
+	    "assigneeObjectRefId" => 30342110900,
+	    "assigneeObjectRefName" => "Kerry Lane",
+	    "assigneeObjectId" => 8,
+	    "description" => $comments,
+	    "emailAddresses" => [
+		[
+		    "emailAddress" => $email,
+		    "emailTypeCode" => "BUSINESS",
+		    "emailType" => "Business",
+		    "id" => "cont_email_input"
+		]
+	    ],
+	    "addresses" => [
+		[
+		    "addressAttributeId" => "address_section_attr_id",
+		    "countryId" => 26,
+		    "addressTypeCode" => "1",
+		    "addressType" => "Billing Address",
+		    "addressLine1" => "",
+		    "addressLine2" => "",
+		    "city" => "",
+		    "state" => "",
+		    "stateCode" => "",
+		    "zipCode" => "",
+		    "county" => "",
+		    "countryName" => "Canada",
+		    "countryCode" => "CA",
+		    "deliveryInstructions" => null,
+		    "addressGroupName" => "Address1"
+		]
+	    ],
+	    "customAttributes" => $customAttributes
+	];
+	
+	
+	$apiKey = "xxxxxxxxxx";                       // Update value based on your firm - must required
+	$accessKey = "xxxxxxxxxxxxxxxxx";             // Update value based on your firm - must required
+
+	$postData = [
+	    "a" => "save",
+	    "objectId" => 4,
+	    "leadData" => json_encode($ldata),
+	    "apiKey" => $apiKey,
+	    "accessKey" => $accessKey
+	];
+
+	$url = "https://api2.apptivo.com/app/dao/v6/leads";
+
+	$ch = curl_init();
+	curl_setopt($ch, CURLOPT_URL, $url);
+	curl_setopt($ch, CURLOPT_POST, true);
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+	curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($postData));
+	curl_setopt($ch, CURLOPT_HTTPHEADER, ['Content-Type: application/x-www-form-urlencoded']);
+
+	$response = curl_exec($ch);
+	$httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+
+	if (curl_errno($ch)) {
+	    echo "cURL Error: " . curl_error($ch);
+	} else {
+	    echo "HTTP Code: $httpCode\n";
+	    echo "Response: $response";
+	}
+
+	curl_close($ch);
+?>
+
+
+
