@@ -83,9 +83,7 @@ make_sound(Dog())  # Output: Bark
 5. ✅ Abstraction
 Hiding complex implementation and showing only the necessary parts. Often achieved using abstract classes.
 
-python
-Copy
-Edit
+
 from abc import ABC, abstractmethod
 
 class Shape(ABC):

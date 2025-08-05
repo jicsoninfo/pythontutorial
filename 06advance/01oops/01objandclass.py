@@ -64,5 +64,26 @@ d.walk()    # From Walker
 d.bark()    # Defined in Dog
 
 
+#Polymorphism
+#Same method name but different depending on the object.
+class Cat01:
+    def sound(self):
+        print("Meow")
+
+class Dog01:
+    def sound(self):
+        print("Bark")
+
+def make_sound(animal):
+    animal.sound()
+make_sound(Cat01()) #output: Meow
+make_sound(Dog()) #Output: Bark
+
+
+#Abstraction
+#Hidding complex implementation and showing only the necessary parts. Often achived using abstract classes.
+
+
+
 
 
